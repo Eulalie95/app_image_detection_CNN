@@ -1,4 +1,5 @@
 import streamlit as st
+import cv2
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
@@ -31,13 +32,22 @@ if image is not None:
 
     # Préparation des données pour le modèle CNN
     def prepare_image(img):
-        img = img.resize((32, 32))  # Redimensionner l'image à 32x32 pixels
-        img = image.img_to_array(img)
-        img = np.expand_dims(img, axis=0)
-        img = img / 255.0  # Normaliser l'image
+        # Convertir l'image en un tableau numpy
+        img = np.array(img)
+        
+        # Redimension de la taille de l'image à 32x32 pixels
+        img = cv2.resize(img, (32, 32))
+        
+        # Normalisation de l'image
+        img = (img - mean) / (std + 1e-7)
+        
+        # Remodeler l'image pour correspondre à la forme attendue par le modèle
+        img = img.reshape((1, 32, 32, 3))
+        
         return img
 
     prepared_image = prepare_image(image)
+
 
     # Prédiction avec le modèle CNN
     prediction = model.predict(prepared_image)
