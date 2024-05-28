@@ -6,8 +6,8 @@ from tensorflow.keras.preprocessing import image
 from PIL import Image
 
 st.write('''
-# Application CNN pour la prévision des catégories d'images CIFAR-10
-Cette application prédit la catégorie des images CIFAR-10 en utilisant un modèle de CNN.
+# Detection des catégories d'images avec CNN
+Cette application prédit la catégorie des images en utilisant un modèle de CNN.
 ''')
 
 st.sidebar.header("Téléchargez votre image")
@@ -27,7 +27,7 @@ image = user_input()
 
 if image is not None:
     # Chargement du modèle de CNN pré-entraîné
-    model = load_model('C:\\Users\\asus\\urban_technology\\cnn_cifar10_model.h5')
+    model = load_model('C:\\Users\\asus\\urban_technology\\app_image_detection_CNN\\cnn_cifar10_model.h5')
 
     # Préparation des données pour le modèle CNN
     def prepare_image(img):
