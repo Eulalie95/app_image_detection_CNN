@@ -1,6 +1,6 @@
 pip
 opencv_python_headless
-streamlit==1.35.0
+streamlit ==1.35.0
 numpy
 tensorflow
-Pillow
+Pillow ==  9.4.0
