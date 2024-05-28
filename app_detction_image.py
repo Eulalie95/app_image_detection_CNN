@@ -27,7 +27,7 @@ image = user_input()
 
 if image is not None:
     # Chargement du modèle de CNN pré-entraîné
-    model = load_model('C:\\Users\\asus\\urban_technology\\app_image_detection_CNN\\cnn_cifar10_model.h5')
+    model = load_model('C:/Users/asus/urban_technology/app_image_detection_CNN/cnn_cifar10_model.h5')
 
     # Préparation des données pour le modèle CNN
     def prepare_image(img):
