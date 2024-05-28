@@ -39,7 +39,7 @@ if image is not None:
         img = cv2.resize(img, (32, 32))
         
         # Normalisation de l'image
-        img = (img - mean) / (std + 1e-7)
+        img = img / 255.0
         
         # Remodeler l'image pour correspondre à la forme attendue par le modèle
         img = img.reshape((1, 32, 32, 3))
